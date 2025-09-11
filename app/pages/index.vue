@@ -1,6 +1,6 @@
 <template>
     <div class="text-white">
         ss
-        <typewriter-effect text="www.suffaq.com" />
+        <welcome-screen v-on:loading-complete="() => true" />
     </div>
 </template>
