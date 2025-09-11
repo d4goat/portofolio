@@ -141,9 +141,7 @@
 import { AnimatePresence, motion } from "motion-v";
 const loading = ref<boolean>(true);
 
-const props = defineProps<{
-  onLoadingComplete: () => void;
-}>();
+const emit = defineEmits(['loadingComplete'])
 
 const items = [
   { icon: "pi pi-code" },
@@ -154,9 +152,13 @@ const items = [
 onMounted(() => {
   const timer = setTimeout(() => {
     loading.value = false;
-    setTimeout(() => {}, 1000);
+    setTimeout(() => {
+        emit('loadingComplete')
+    }, 800);
   }, 4000);
 
-  return () => clearTimeout(timer);
+  onUnmounted(() => {
+    clearTimeout(timer)
+  })
 });
 </script>
