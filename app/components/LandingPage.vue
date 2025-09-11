@@ -4,9 +4,39 @@
   </AnimatePresence>
     <div v-if="!showWelcome">
       <div>
-        <center>
-          <h1 class="text-4xl font-bold text-white">Welcome to My Portfolio</h1>
-        </center>
+        <SplitText
+          text="Hello, Everyone!"
+          class-name="text-2xl font-semibold text-center"
+          :delay="50"
+          :duration="0.6"
+          ease="power3.out"
+          split-type="chars"
+          :from="{ opacity: 0, y: 40 }"
+          :to="{ opacity: 1, y: 0 }"
+          :threshold="0.1"
+          root-margin="-100px"
+          text-align="center"
+        />
+          <BlurText
+    text="Front End"
+    :delay="200"
+    class-name="text-4xl font-semibold text-center"
+    animate-by="words"
+    direction="top"
+    :threshold="0.1"
+    root-margin="0px"
+    :step-duration="0.35"
+  />
+          <BlurText
+    text="Developer"
+    :delay="300"
+    class-name="text-4xl font-semibold text-center"
+    animate-by="words"
+    direction="top"
+    :threshold="0.1"
+    root-margin="0px"
+    :step-duration="0.35"
+  />
       </div>
       <Dock
     :items="items"
