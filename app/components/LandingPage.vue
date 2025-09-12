@@ -3,86 +3,67 @@
     <WelcomeScreen v-if="showWelcome" @loading-complete="handleLoadingComplete" />
   </AnimatePresence>
     <div v-if="!showWelcome">
-      <div>
-        <SplitText
-          text="Hello, Everyone!"
-          class-name="text-2xl font-semibold text-center"
-          :delay="50"
-          :duration="0.6"
-          ease="power3.out"
-          split-type="chars"
-          :from="{ opacity: 0, y: 40 }"
-          :to="{ opacity: 1, y: 0 }"
-          :threshold="0.1"
-          root-margin="-100px"
-          text-align="center"
-        />
-          <BlurText
-    text="Front End"
-    :delay="200"
-    class-name="text-4xl font-semibold text-center"
-    animate-by="words"
-    direction="top"
-    :threshold="0.1"
-    root-margin="0px"
-    :step-duration="0.35"
-  />
-          <BlurText
-    text="Developer"
-    :delay="300"
-    class-name="text-4xl font-semibold text-center"
-    animate-by="words"
-    direction="top"
-    :threshold="0.1"
-    root-margin="0px"
-    :step-duration="0.35"
-  />
+      <div class="min-h-screen overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%]">
+        <div :class="['relative z-10 transition-all duration-1000', isLoaded ? 'opacity-100' : 'opacity-0']">
+          <div class="container mx-auto min-h-screen">
+            <div class="flex flex-col lg:flex-row items-center justify-center h-screen md:justify-between gap-0 sm:gap-12 lg:gap-20">
+              <div class="w-full lg:w-1/2 space-y-6 sm:space-y-8 text-left lg:text-left order-1 lg:order-1 lg:mt-0">
+                <div class="space-y-4 sm:space-y-6">
+                  <div data-aos="fade-right" data-aos-delay="400" class="">
+                    <h1 class="text-8xl font-bold relative">
+                      Hello, <br>
+                      <ShinyText 
+                        text="I'm Yusuf!"
+                        :disabled="false" 
+                        :speed="3" 
+                        class="font-titilium"
+                      />
+                    </h1>
+                  </div>
+                  <div data-aos="fade-right" data-aos-delay="600" class="relative inline-block">
+                    <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
+                  <TextType
+                    :text="['Frontend Developer', 'Backend Developer']"
+                    :typingSpeed="75"
+                    :pauseDuration="1500"
+                    :showCursor="true"
+                    cursorCharacter="|"
+                    class="text-6xl font-bold relative"
+                  />
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <Dock
-    :items="items"
-    :panel-height="58"
-    :base-item-size="40"
-    :magnification="50"
-    :distance="150"
-    :dock-height="150"
-    :spring="{ mass: 0.1, stiffness: 150, damping: 12 }"
-    />
+
+      <div class="bar">
+        <Bar />
+      </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import { AnimatePresence } from 'motion-v';
+import { AnimatePresence, motion } from 'motion-v';
 const showWelcome = ref(true);
+const isLoaded = ref(false);
 
 const handleLoadingComplete = () => {
   console.log('Loading completed!'); // Debug log
   showWelcome.value = false;
 };
 
-import { h } from 'vue'
-  const items = [
-    { 
-      icon: () => h('i', { class: 'pi pi-home', style: { fontSize: '13px', color: 'white' } }), 
-      label: 'Home', 
-      onClick: () => console.log('Home clicked!') 
-    },
-    { 
-      icon: () => h('i', { class: 'pi pi-inbox', style: { fontSize: '13px', color: 'white' } }), 
-      label: 'Archive', 
-      onClick: () => console.log('Archive clicked!') 
-    },
-    { 
-      icon: () => h('i', { class: 'pi pi-user', style: { fontSize: '13px', color: 'white' } }), 
-      label: 'Profile', 
-      onClick: () => console.log('Profile clicked!') 
-    },
-    { 
-      icon: () => h('i', { class: 'pi pi-cog', style: { fontSize: '13px', color: 'white' } }), 
-      label: 'Settings', 
-      onClick: () => console.log('Settings clicked!') 
-    },
-  ];
-</script>
-<style>
+onMounted(() => {
+  isLoaded.value = true
+})
 
+onUnmounted(() => {
+  isLoaded.value = false
+})
+</script>
+<style scoped>
+h1 {
+  font-family: Titillium Web;
+}
 </style>

@@ -1,5 +1,16 @@
 <template>
-      <Dock
+  <motion.div
+     :initial="{ opacity: 0 }"
+      :animate="{ opacity: 1 }"
+      :exit="{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }"
+      :transition="{
+        duration: 0.8,
+        ease: 'easeInOut',
+        when: 'beforeChildren',
+        staggerChildren: 0.1,
+      }"
+  >
+    <Dock
     :items="items"
     :panel-height="58"
     :base-item-size="40"
@@ -8,9 +19,11 @@
     :dock-height="150"
     :spring="{ mass: 0.1, stiffness: 150, damping: 12 }"
     />
+  </motion.div>
 </template>
 
 <script lang="ts" setup>
+import { AnimatePresence, motion } from 'motion-v';
 import { h } from 'vue'
   const items = [
     { 

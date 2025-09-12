@@ -25,6 +25,8 @@ onMounted(() => {
 })
 </script>
 
-<style>
-
+<style scoped>
+span {
+  font-family: Titillium Web;
+}
 </style>

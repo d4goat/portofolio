@@ -2,22 +2,22 @@
   <u-app>
     <div class="">
       <Particles
-        :particle-count="200"
+        :particle-count="250"
         :particle-spread="10"
-        :speed="0.1"
+        :speed="0.2"
         :particle-colors="['#ffffff']"
         :move-particles-on-hover="true"
         :particle-hover-factor="1"
         :alpha-particles="false"
         :particle-base-size="100"
         :size-randomness="1"
-        :camera-distance="20"
+        :camera-distance="25"
         :disable-rotation="false"
         class="w-screen h-screen bg-black -z-50"
       />
     </div>
     <div class="">
-      <nuxt-page />
+      <nuxt-page class="font-inter" />
     </div>
   </u-app>
 </template>

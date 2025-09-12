@@ -7,6 +7,15 @@ export default defineNuxtConfig({
       title: "Suffaq"
     }
   },
+  fonts: {
+    families: [
+      {
+        name: 'Titilium Web',
+        weights: [400, 500, 600, 700, 800, 900],
+        provider: 'google',
+      }
+    ]
+  },
   aos: {
     once: false,
     mirror: false,
@@ -14,11 +23,11 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/fonts.css'],
   vite: {
     plugins: [
       tailwindcss()
     ]
   },
-  modules: ['@nuxt/eslint', '@nuxt/ui', 'nuxt-aos', 'motion-v/nuxt']
+  modules: ['@nuxt/eslint', '@nuxt/ui', 'nuxt-aos', 'motion-v/nuxt', '@nuxt/fonts']
 })
