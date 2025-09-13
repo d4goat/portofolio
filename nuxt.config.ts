@@ -29,5 +29,18 @@ export default defineNuxtConfig({
       tailwindcss()
     ]
   },
-  modules: ['@nuxt/eslint', '@nuxt/ui', 'nuxt-aos', 'motion-v/nuxt', '@nuxt/fonts']
+  modules: [
+    '@nuxt/eslint',
+    '@nuxt/ui',
+    'nuxt-aos',
+    'motion-v/nuxt',
+    '@nuxt/fonts',
+    'nuxt-lottie'
+  ],
+  lottie: {
+    componentName: 'Lottie',
+    lottieFolder: '/assets/lottie',
+    autoFolderCreation: true,
+    enableLogs: true
+  }
 })

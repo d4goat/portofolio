@@ -2,7 +2,7 @@
   <AnimatePresence>
     <motion.div
       v-if="loading"
-      class="fixed inset-0 bg-[#030014]"
+      class="fixed inset-0 bg-gradient-to-br from-neutral-900 to-neutral-600"
       :initial="{ opacity: 0 }"
       :animate="{ opacity: 1 }"
       :exit="{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }"
@@ -33,7 +33,7 @@
               :data-aos-delay="index * 200"
             >
               <div
-                class="absolute -inset-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-75 transition duration-300"
+                class="absolute -inset-2 bg-gradient-to-r from-neutral-600 to-neutral-300 rounded-full blur opacity-30 group-hover:opacity-75 transition duration-300"
               />
               <div
                 class="relative p-2 sm:p-3 bg-black/50 backdrop-blur-sm rounded-full flex border border-white/10"
@@ -83,20 +83,7 @@
                 </span>
               </div>
               <div>
-                <span
-                  data-aos="fade-up"
-                  data-aos-delay="800"
-                  class="inline-block px-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
-                >
-                  Portfolio
-                </span>
-                <span
-                  data-aos="fade-up"
-                  data-aos-delay="1000"
-                  class="inline-block px-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
-                >
-                  Website
-                </span>
+                <ShinyText text="Portofolio Website" :speed="2" class="font-titilium" data-aos="fade-up" data-aos-delay="800" />
               </div>
             </h1>
           </motion.div>
@@ -117,15 +104,17 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div
-                class="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-full blur-md group-hover:blur-lg transition-all duration-300"
+              <UBadge
+              color="primary"
+              variant="subtle"
+                class="absolute inset-0  transition-all duration-300"
               />
               <div
                 class="relative flex items-center gap-2 text-lg sm:text-xl md:text-2xl"
               >
-                <Globe class="w-4 h-4 sm:w-5 sm:h-5 text-indigo-600" />
+                <i class="pi pi-globe w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 <span
-                  class="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+                  class="bg-white bg-clip-text text-transparent"
                 >
                   <TypewriterEffect text="www.suffaq.com" />
                 </span>

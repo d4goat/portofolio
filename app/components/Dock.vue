@@ -69,7 +69,7 @@ const handleMouseLeave = () => {
     <div
       @mousemove="handleMouseMove"
       @mouseleave="handleMouseLeave"
-      :class="`${props.className} bg-[#09090b] absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-neutral-700 border-2 pb-2 px-4`"
+      :class="`${props.className} bg-[#09090b] fixed bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-neutral-700 border-2 pb-2 px-4`"
       :style="{ height: props.panelHeight + 'px' }"
       role="toolbar"
       aria-="Application dock"

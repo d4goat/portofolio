@@ -2,6 +2,24 @@
   <div ref="containerRef" class="beams-container w-full h-full relative" />
 </template>
 
+<style scoped>
+div {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+:deep(canvas) {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+</style>
+
 <script setup lang="ts">
 import { onMounted, onUnmounted, watch, computed, useTemplateRef } from 'vue';
 import * as THREE from 'three';
