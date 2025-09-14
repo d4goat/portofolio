@@ -21,6 +21,7 @@
     "nuxt": "^4.1.1",
     "nuxt-aos": "^1.2.5",
     "nuxt-lottie": "^1.0.5",
+    "nuxt-lucide-icons": "^1.0.5",
     "ogl": "^1.0.11",
     "primeicons": "^7.0.0",
     "tailwindcss": "^4.1.13",

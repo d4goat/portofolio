@@ -6,7 +6,7 @@
     />
   </AnimatePresence>
   <div v-if="!showWelcome">
-    <div class="min-h-screen overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%]">
+    <UContainer class="min-h-screen overflow-hidden">
       <div
         :class="[
           'relative transition-all duration-1000',
@@ -65,16 +65,10 @@
             </div>
           </div>
 
-          <div class="flex flex-col gap-4 items-center">
-            <div data-aos="fade-up">
-              <h1 class="text-5xl">
-                About Me
-              </h1>
-            </div>
-          </div>
+          <AboutMe/>
         </div>
       </div>
-    </div>
+    </UContainer>
 
     <div class="bar">
       <Bar />
@@ -84,6 +78,7 @@
 
 <script lang="ts" setup>
 import { AnimatePresence, motion } from "motion-v";
+import AboutMe from "./AboutMe.vue";
 const showWelcome = ref(true);
 const isLoaded = ref(false);
 

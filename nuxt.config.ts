@@ -35,12 +35,13 @@ export default defineNuxtConfig({
     'nuxt-aos',
     'motion-v/nuxt',
     '@nuxt/fonts',
-    'nuxt-lottie'
+    'nuxt-lottie',
+    'nuxt-lucide-icons'
   ],
   lottie: {
     componentName: 'Lottie',
     lottieFolder: '/assets/lottie',
     autoFolderCreation: true,
     enableLogs: true
-  }
+  },
 })
