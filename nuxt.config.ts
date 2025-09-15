@@ -7,6 +7,12 @@ export default defineNuxtConfig({
       title: "Suffaq"
     }
   },
+  nitro: {
+    preset: 'vercel-edge'
+  },
+  experimental: {
+    payloadExtraction: false
+  },
   fonts: {
     families: [
       {

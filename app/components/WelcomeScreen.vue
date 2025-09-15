@@ -138,16 +138,35 @@ const items = [
   { icon: "pi pi-user" },
 ];
 
-onMounted(() => {
-  const timer = setTimeout(() => {
-    loading.value = false;
-    setTimeout(() => {
-        emit('loadingComplete')
-    }, 800);
-  }, 4000);
+const useLoadingTimer = () => {
+  let timer:  any = null;
 
-  onUnmounted(() => {
-    clearTimeout(timer)
-  })
+  const startTimer = () => {
+    timer = setTimeout(() => {
+      loading.value = false;
+      setTimeout(() => {
+        emit('loadingComplete');
+      }, 800);
+    }, 4000);
+  };
+
+  const cleanup = () => {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+  };
+
+  return { startTimer, cleanup };
+};
+
+const { startTimer, cleanup } = useLoadingTimer();
+
+onMounted(() => {
+  startTimer();
+});
+
+onUnmounted(() => {
+  cleanup();
 });
 </script>

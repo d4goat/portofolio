@@ -120,32 +120,43 @@ watch(
   { immediate: true }
 );
 
-onMounted(() => {
+const initializeCursor = () => {
   if (props.showCursor && cursorRef.value) {
-    gsap.set(cursorRef.value, { opacity: 1 });
+    gsap.set(cursorRef.value, { opacity: 1 })
     gsap.to(cursorRef.value, {
       opacity: 0,
       duration: props.cursorBlinkDuration,
       repeat: -1,
       yoyo: true,
-      ease: 'power2.inOut'
-    });
+      ease: "power2.inOut"
+    })
   }
+}
 
+const initializeIntersectionObserver = () => {
   if (props.startOnVisible && containerRef.value) {
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) isVisible.value = true;
-        });
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            isVisible.value = true
+          }
+        })
       },
       { threshold: 0.1 }
-    );
+    )
+    
     if (containerRef.value instanceof Element) {
-      observer.observe(containerRef.value);
+      observer.observe(containerRef.value)
     }
-    onBeforeUnmount(() => observer.disconnect());
+    
+    onBeforeUnmount(() => observer.disconnect())
   }
+}
+
+onMounted(() => {
+  initializeCursor()
+  initializeIntersectionObserver()
 });
 
 onBeforeUnmount(() => {
