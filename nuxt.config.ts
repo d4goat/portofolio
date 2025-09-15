@@ -33,7 +33,10 @@ export default defineNuxtConfig({
   vite: {
     plugins: [
       tailwindcss()
-    ]
+    ],
+    optimizeDeps: {
+      exclude: ['oxc-parser']
+    }
   },
   modules: [
     '@nuxt/eslint',
