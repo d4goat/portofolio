@@ -1,7 +1,12 @@
 export default defineAppConfig({
   ui: {
     colors: {
-        primary: 'zinc'
+        primary: 'zinc',
+        error: 'red',
+        secondary: 'blue',
+        info: 'sky',
+        success: 'green',
+        warning: 'yellow',
     },
     badge: {
       slots: {
@@ -18,13 +23,13 @@ export default defineAppConfig({
           vertical: 'not-only:first:rounded-b-none not-only:last:rounded-t-none not-last:not-first:rounded-none focus-visible:z-[1]'
         },
         color: {
-          primary: '',
-          secondary: '',
-          success: '',
-          info: '',
-          warning: '',
-          error: '',
-          neutral: ''
+          primary: 'zinc',
+        error: 'red',
+        secondary: 'blue',
+        info: 'sky',
+        success: 'green',
+        warning: 'yellow',
+        neutral: 'zinc'
         },
         variant: {
           solid: '',
@@ -92,22 +97,22 @@ export default defineAppConfig({
         {
           color: 'neutral',
           variant: 'solid',
-          class: 'text-inverted bg-inverted'
+          class: 'text-neutral-900 bg-neutral-900'
         },
         {
           color: 'neutral',
           variant: 'outline',
-          class: 'ring ring-inset ring-accented text-default bg-default'
+          class: 'ring ring-inset ring-neutral-800 text-default bg-default'
         },
         {
           color: 'neutral',
           variant: 'soft',
-          class: 'text-default bg-elevated'
+          class: 'text-default bg-neutral-800'
         },
         {
           color: 'neutral',
           variant: 'subtle',
-          class: 'ring ring-inset ring-accented text-default bg-elevated'
+          class: 'ring ring-inset ring-neutral-800 text-default bg-neutral-800'
         },
         {
           size: 'xs',
@@ -154,16 +159,19 @@ export default defineAppConfig({
       variants: {
         variant: {
           solid: {
-            root: 'bg-inverted text-inverted'
+            root: 'bg-neutral-900 text-neutral-900'
           },
           outline: {
-            root: 'bg-default ring ring-default divide-y divide-default'
+            root: 'bg-default ring ring-neutral-500 divide-y divide-default',
+            header: 'border-neutral-500'
           },
           soft: {
-            root: 'bg-elevated/50 divide-y divide-default'
+            root: 'bg-neutral-800/50 divide-y divide-default',
+            header: 'border-neutral-400'
           },
           subtle: {
-            root: 'bg-elevated/50 ring ring-default divide-y divide-default'
+            root: 'bg-neutral-800/50 ring ring-neutral-500 divide-y divide-default',
+            header: 'border-neutral-500'
           }
         }
       },

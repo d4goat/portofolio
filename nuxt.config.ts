@@ -7,12 +7,9 @@ export default defineNuxtConfig({
       title: "Suffaq"
     }
   },
-  nitro: {
-    preset: 'vercel'
-  },
-  experimental: {
-    payloadExtraction: false
-  },
+  // nitro: {
+  //   preset: 'vercel'
+  // },
   fonts: {
     families: [
       {
@@ -34,9 +31,9 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss()
     ],
-    optimizeDeps: {
-      exclude: ['oxc-parser']
-    }
+    // optimizeDeps: {
+    //   exclude: ['oxc-parser']
+    // }
   },
   modules: [
     '@nuxt/eslint',
