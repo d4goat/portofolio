@@ -94,7 +94,7 @@
 
           <div class="grid grid-cols-3 gap-5">
             <div
-              class="p-3 flex flex-col items-center text-center bg-neutral-800/40 space-y-3 rounded-lg
+              class="p-3 flex flex-col items-center text-center bg-neutral-800/40 shadow shadow-black space-y-3 rounded-lg
               cursor-pointer hover:scale-105 hover:-translate-y-3 hover:bg-neutral-800/80 transition-all duration-300"
               v-for="(item, index) in secData"
               :key="index"
@@ -118,6 +118,8 @@
         alt=""
       />
     </div>
+    <Placeholder />
+    <TechStack/>
     <Placeholder />
   </div>
 </template>

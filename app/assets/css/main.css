@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import 'primeicons/primeicons.css';
+@import "@nuxt/ui";
 
 @theme {
     --font-display: "Inter", "sans-serif";
@@ -92,8 +93,16 @@
 
   --bg-elevated: var(--color-neutral-100);
   --bg-accented: var(--color-neutral-200);
---bg-inverted: var(--color-neutral-900);
+  --bg-inverted: var(--color-neutral-900);
 }
+
+/* @layer utilities{
+  :root {
+     --bg-elevated: var(--color-neutral-100);
+  --bg-accented: var(--color-neutral-200);
+  --bg-inverted: var(--color-neutral-900);
+  }
+} */
 
 :root {
   --ui-primary: var(--color-primary-700);

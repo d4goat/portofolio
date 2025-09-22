@@ -99,7 +99,7 @@
             data-aos-delay="1200"
           >
             <a
-              href="https://www.suffaq.com"
+              href="https://www.dilzz.vercel.app"
               class="inline-flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-full relative group hover:scale-105 transition-transform duration-300"
               target="_blank"
               rel="noopener noreferrer"
@@ -116,7 +116,7 @@
                 <span
                   class="bg-white bg-clip-text text-transparent"
                 >
-                  <TypewriterEffect text="www.suffaq.com" />
+                  <TypewriterEffect text="www.dilzz.vercel.app" />
                 </span>
               </div>
             </a>
@@ -147,7 +147,7 @@ const useLoadingTimer = () => {
       setTimeout(() => {
         emit('loadingComplete');
       }, 800);
-    }, 4000);
+    }, 5000);
   };
 
   const cleanup = () => {

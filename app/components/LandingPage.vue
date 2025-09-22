@@ -78,7 +78,6 @@
 
 <script lang="ts" setup>
 import { AnimatePresence, motion } from "motion-v";
-import AboutMe from "./AboutMe.vue";
 const showWelcome = ref(true);
 const isLoaded = ref(false);
 

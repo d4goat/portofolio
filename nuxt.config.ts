@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   app: {
     head: {
-      title: "Suffaq"
+      title: "Dilz | Personal Portofolio"
     }
   },
   // nitro: {
@@ -42,7 +42,8 @@ export default defineNuxtConfig({
     'motion-v/nuxt',
     '@nuxt/fonts',
     'nuxt-lottie',
-    'nuxt-lucide-icons'
+    'nuxt-lucide-icons',
+    'nuxt-svgo',
   ],
   lottie: {
     componentName: 'Lottie',
@@ -50,4 +51,7 @@ export default defineNuxtConfig({
     autoFolderCreation: true,
     enableLogs: true
   },
+  svgo: {
+    autoImportPath: '~/assets/images/'
+  }
 })
