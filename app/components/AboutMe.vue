@@ -15,9 +15,10 @@
       >
         <i class="pi pi-sparkles"></i>
         Transforming an ideas into digital experiences
+        <i class="pi pi-sparkles"></i>
       </p>
     </div>
-    <div class="flex gap-6">
+    <div class="flex md:flex-row flex-col-reverse gap-6">
       <u-card variant="subtle" data-aos="fade-right" data-aos-duration="800">
         <template #header>
           <div class="flex flex-row justify-between">
@@ -119,6 +120,14 @@
       />
     </div>
     <Placeholder />
+    <div class="space-y-4 text-center">
+      <h1 class="text-5xl font-bold">
+        Tech Stack & Projects
+      </h1>
+      <p class="text-lg font-semibold text-gray-300">
+        Explore my journey through projects, and technical expertise. Each <br> section represents a milestone in my continuous learning path.
+      </p>
+    </div>
     <TechStack/>
     <Placeholder />
   </div>
