@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     'nuxt-lottie',
     'nuxt-lucide-icons',
     'nuxt-svgo',
+    '@pinia/nuxt'
   ],
   lottie: {
     componentName: 'Lottie',
@@ -53,5 +54,5 @@ export default defineNuxtConfig({
   },
   svgo: {
     autoImportPath: '~/assets/images/'
-  }
+  },
 })

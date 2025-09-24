@@ -87,7 +87,8 @@ const projectData: propsType[] = [
         description: 'Sebuah website yang menyediakan quran, hadits, bacaan sholat, doa harian, shalawat nabi dan waktu sholat secara online sehingga memudahkan pengguna untuk mengaksesnya',
         img: '/images/go-hijrah.png',
         isDeploy: true,
-        link: 'https://go-hijrah.vercel.app'
+        link: 'https://go-hijrah.vercel.app',
+        detailLink: 'project/go-hijrah'
     }
 ]
 </script>

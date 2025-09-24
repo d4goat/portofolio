@@ -128,7 +128,7 @@
         Explore my journey through projects, and technical expertise. Each <br> section represents a milestone in my continuous learning path.
       </p>
     </div>
-    <TechStack/>
+    <TechStack id="tech"/>
     <Placeholder />
   </div>
 </template>

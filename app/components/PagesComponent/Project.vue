@@ -15,7 +15,7 @@
           <span class="text-lg font-semibold">Live Demo</span>
           <lucide-external-link/>
         </u-button>
-        <u-button variant="subtle" label="Detail" trailing-icon="i-lucide-arrow-right" :to="data.link" />
+        <u-button variant="subtle" label="Detail" trailing-icon="i-lucide-arrow-right" :to="data.detailLink" />
       </div>
     </div>
   </u-card>
@@ -27,7 +27,8 @@ export interface propsType {
   title: string;
   description: string;
   link?: string;
-  isDeploy: boolean
+  isDeploy: boolean;
+  detailLink: string
 }
 const props = defineProps<{
   data: propsType

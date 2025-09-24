@@ -29,7 +29,7 @@ const containerRef = useTemplateRef<HTMLDivElement>('containerRef');
 const wordRefs = ref<HTMLSpanElement[]>([]);
 const focusRect = ref({ x: 0, y: 0, width: 0, height: 0 });
 
-let interval: number | null = null;
+let interval: any = null;
 
 watch(
   [() => props.manualMode, () => props.animationDuration, () => props.pauseBetweenAnimations, () => words.value],

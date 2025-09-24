@@ -1,12 +1,12 @@
 <template>
   <AnimatePresence mode="wait">
     <WelcomeScreen
-      v-if="showWelcome"
+      v-if="showWelcome.welcome"
       @loading-complete="handleLoadingComplete"
     />
   </AnimatePresence>
-  <div v-if="!showWelcome">
-    <UContainer class="min-h-screen overflow-hidden">
+  <div v-if="!showWelcome.welcome">
+    <UContainer class="min-h-dvh overflow-hidden">
       <div
         :class="[
           'relative transition-all duration-1000',
@@ -78,12 +78,13 @@
 
 <script lang="ts" setup>
 import { AnimatePresence, motion } from "motion-v";
-const showWelcome = ref(true);
+import { useSetWelcome } from "#imports";
+const showWelcome = useSetWelcome()
 const isLoaded = ref(false);
 
 const handleLoadingComplete = () => {
   console.log("Loading completed!"); // Debug log
-  showWelcome.value = false;
+  showWelcome.setNotWelcome()
 };
 
 onMounted(() => {
