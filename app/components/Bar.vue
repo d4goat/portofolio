@@ -24,12 +24,13 @@
 
 <script lang="ts" setup>
 import { AnimatePresence, motion } from 'motion-v';
-import { h } from 'vue'
+
+const router = useRouter()
   const items = [
     { 
       icon: () => h('i', { class: 'pi pi-home', style: { fontSize: '13px', color: 'white' } }), 
       label: 'Home', 
-      onClick: () => console.log('Home clicked!') 
+      onClick: () =>  router.push('#home')
     },
     { 
       icon: () => h('i', { class: 'pi pi-inbox', style: { fontSize: '13px', color: 'white' } }), 

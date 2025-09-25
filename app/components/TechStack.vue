@@ -88,7 +88,7 @@ const projectData: propsType[] = [
         img: '/images/go-hijrah.png',
         isDeploy: true,
         link: 'https://go-hijrah.vercel.app',
-        detailLink: 'project/go-hijrah'
+        detailLink: 'project/go-hijrah',
     }
 ]
 </script>

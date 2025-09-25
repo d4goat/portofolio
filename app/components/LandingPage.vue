@@ -13,7 +13,10 @@
           isLoaded ? 'opacity-100' : 'opacity-0',
         ]"
       >
-        <div class="container space-y-40 mx-auto pt-36">
+        <div 
+          id="home"
+
+        class="container space-y-40 mx-auto pt-36">
           <div
             class="flex flex-col lg:flex-row-reverse items-center justify-center md:justify-between gap-0 sm:gap-12 lg:gap-20">
             <Lottie
@@ -70,9 +73,7 @@
       </div>
     </UContainer>
 
-    <div class="bar">
-      <Bar />
-    </div>
+    <Bar />
   </div>
 </template>
 
@@ -81,6 +82,8 @@ import { AnimatePresence, motion } from "motion-v";
 import { useSetWelcome } from "#imports";
 const showWelcome = useSetWelcome()
 const isLoaded = ref(false);
+
+
 
 const handleLoadingComplete = () => {
   console.log("Loading completed!"); // Debug log

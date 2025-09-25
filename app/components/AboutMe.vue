@@ -129,7 +129,6 @@
       </p>
     </div>
     <TechStack id="tech"/>
-    <Placeholder />
   </div>
 </template>
 

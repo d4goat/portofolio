@@ -124,6 +124,7 @@
   --ui-border-muted: var(--color-neutral-200);
   --ui-border-accented: var(--color-neutral-300);
   --ui-border-inverted: var(--color-neutral-900);
+  scroll-behavior: smooth;
 }
 
 .dark {

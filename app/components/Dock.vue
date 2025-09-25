@@ -18,6 +18,7 @@ export type DockProps = {
   dockHeight?: number;
   magnification?: number;
   spring?: SpringOptions;
+  footerHeight?: number; // Height of footer to detect collision
 };
 
 const props = withDefaults(defineProps<DockProps>(), {
@@ -27,12 +28,17 @@ const props = withDefaults(defineProps<DockProps>(), {
   baseItemSize: 50,
   dockHeight: 256,
   magnification: 70,
+  footerHeight: 100,
   spring: () => ({ mass: 0.1, stiffness: 150, damping: 12 })
 });
 
 const mouseX = useMotionValue(Infinity);
 const isHovered = useMotionValue(0);
 const currentHeight = ref(props.panelHeight);
+
+// Scroll detection
+const isNearBottom = ref(false);
+const dockOpacity = ref(1);
 
 const maxHeight = computed(() => Math.max(props.dockHeight, props.magnification + props.magnification / 2 + 4));
 
@@ -41,16 +47,45 @@ const height = useSpring(heightRow, props.spring);
 
 let unsubscribeHeight: (() => void) | null = null;
 
+// Scroll listener
+const handleScroll = () => {
+  const scrollHeight = document.documentElement.scrollHeight;
+  const scrollTop = document.documentElement.scrollTop;
+  const clientHeight = document.documentElement.clientHeight;
+  
+  // Calculate distance from bottom
+  const distanceFromBottom = scrollHeight - (scrollTop + clientHeight);
+  
+  // If we're within footer height + some padding, start fading
+  const fadeThreshold = props.footerHeight + 50;
+  
+  if (distanceFromBottom <= fadeThreshold) {
+    isNearBottom.value = true;
+    // Calculate opacity based on distance (fade out as we get closer to bottom)
+    const fadeProgress = Math.max(0, distanceFromBottom / fadeThreshold);
+    dockOpacity.value = fadeProgress;
+  } else {
+    isNearBottom.value = false;
+    dockOpacity.value = 1;
+  }
+};
+
 onMounted(() => {
   unsubscribeHeight = height.on('change', (latest: number) => {
     currentHeight.value = latest;
   });
+  
+  // Add scroll listener
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  // Initial check
+  handleScroll();
 });
 
 onUnmounted(() => {
   if (unsubscribeHeight) {
     unsubscribeHeight();
   }
+  window.removeEventListener('scroll', handleScroll);
 });
 
 const handleMouseMove = (event: MouseEvent) => {
@@ -65,14 +100,20 @@ const handleMouseLeave = () => {
 </script>
 
 <template>
-  <div :style="{ height: currentHeight + 'px', scrollbarWidth: 'none' }" class="mx-2 flex max-w-full items-center">
+  <div 
+    class="fixed bottom-0 left-0 right-0 z-50 pointer-events-none transition-opacity duration-300"
+    :style="{ 
+      height: maxHeight + 'px',
+      opacity: dockOpacity
+    }"
+  >
     <div
       @mousemove="handleMouseMove"
       @mouseleave="handleMouseLeave"
-      :class="`${props.className} bg-[#09090b] fixed bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-neutral-700 border-2 pb-2 px-4`"
+      :class="`${props.className} bg-[#09090b] absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-neutral-700 border-2 pb-2 px-4 pointer-events-auto transition-all duration-300`"
       :style="{ height: props.panelHeight + 'px' }"
       role="toolbar"
-      aria-="Application dock"
+      aria-label="Application dock"
     >
       <DockItem
         v-for="(item, index) in props.items"
