@@ -1,66 +1,36 @@
 <template>
   <AnimatePresence mode="wait">
-    <WelcomeScreen
-      v-if="showWelcome.welcome"
-      @loading-complete="handleLoadingComplete"
-    />
+    <WelcomeScreen v-if="showWelcome.welcome" @loading-complete="handleLoadingComplete" />
   </AnimatePresence>
   <div v-if="!showWelcome.welcome">
     <UContainer class="min-h-dvh overflow-hidden">
-      <div
-        :class="[
-          'relative transition-all duration-1000',
-          isLoaded ? 'opacity-100' : 'opacity-0',
-        ]"
-      >
-        <div 
-          id="home"
-
-        class="container space-y-40 mx-auto pt-36">
+      <div :class="[
+        'relative transition-all duration-1000',
+        isLoaded ? 'opacity-100' : 'opacity-0',
+      ]">
+        <div id="home" class="container space-y-14 md:space-y-20 mx-auto pt-20 md:pt-36">
           <div
-            class="flex flex-col lg:flex-row-reverse items-center justify-center md:justify-between gap-0 sm:gap-12 lg:gap-20">
-            <Lottie
-              width="70%"
-              height="70%"
-              class="grayscale hover:scale-105 hover:rotate-2 transition-transform duration-300"
-              name="Technology"
-            />
-            <div
-              class="w-full lg:w-1/2 space-y-6 sm:space-y-8 text-left lg:text-left order-1 lg:order-1 lg:mt-0"
-            >
-              <div class="space-y-6 sm:space-y-6">
+            class="flex flex-col-reverse md:flex-row-reverse items-center justify-center md:justify-between gap-0 sm:gap-12 lg:gap-20">
+            <div data-aos="fade-left" data-aos-delay="600" class="lg:w-3/4 md:mt-0 mt-5 h-auto lg:h-[30em] w-full">
+              <Lottie class="grayscale w-full h-full hover:scale-105 hover:rotate-2 transition-transform duration-300"
+                name="Coding Slide" />
+            </div>
+            <div class="w-full lg:w-1/2 space-y-6 sm:space-y-8 text-left lg:text-left order-1 lg:order-1 lg:mt-0">
+              <div class="space-y-3 sm:space-y-6">
                 <div data-aos="fade-right" data-aos-delay="400" class="">
-                  <h1 class="text-8xl font-bold relative">
+                  <h1 class="md:text-8xl text-6xl font-bold relative">
                     <ShinyText text="Hello," :speed="3" class="font-titilium" />
                     <br />
-                    <ShinyText
-                      text="I'm Yusuf!"
-                      :disabled="false"
-                      :speed="3"
-                      class="font-titilium"
-                    />
+                    <ShinyText text="I'm Yusuf!" :disabled="false" :speed="3" class="font-titilium" />
                   </h1>
                 </div>
-                <div
-                  data-aos="fade-right"
-                  data-aos-delay="600"
-                  class="relative inline-block"
-                >
-                  <span
-                    className="absolute -inset-2 bg-white blur-2xl opacity-20"
-                  ></span>
-                  <TextType
-                    :text="['Frontend Developer', 'Backend Developer']"
-                    :typingSpeed="75"
-                    :pauseDuration="1500"
-                    :showCursor="true"
-                    cursorCharacter="|"
-                    class="text-5xl font-bold relative"
-                  />
+                <div data-aos="fade-right" data-aos-delay="600" class="relative inline-block">
+                  <span className="absolute -inset-2 bg-white blur-2xl opacity-20"></span>
+                  <TextType :text="['Frontend Developer', 'Backend Developer']" :typingSpeed="75" :pauseDuration="1500"
+                    :showCursor="true" cursorCharacter="|" class="md:text-5xl text-3xl font-bold relative" />
                 </div>
-                <div data-aos="fade-up"
-                data-aos-delay="700">
-                  <span class="text-2xl text-neutral-300">
+                <div data-aos="fade-up" data-aos-delay="700">
+                  <span class="md:text-2xl text-lg text-neutral-300">
                     Create a innovative website, Functional, and User-Friendly.
                   </span>
                 </div>
@@ -68,7 +38,7 @@
             </div>
           </div>
 
-          <AboutMe/>
+          <AboutMe />
         </div>
       </div>
     </UContainer>
@@ -82,8 +52,6 @@ import { AnimatePresence, motion } from "motion-v";
 import { useSetWelcome } from "#imports";
 const showWelcome = useSetWelcome()
 const isLoaded = ref(false);
-
-
 
 const handleLoadingComplete = () => {
   console.log("Loading completed!"); // Debug log
@@ -102,11 +70,12 @@ onUnmounted(() => {
 h1 {
   font-family: Titillium Web;
 }
+
 span {
   font-family: Titillium Web;
 }
 
-div{
+div {
   font-family: Titillium Web;
 }
 </style>

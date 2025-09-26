@@ -1,6 +1,6 @@
 <template>
     <div 
-    class="group cursor-pointer bg-neutral-800/60 hover:bg-neutral-800 p-4 rounded-lg
+    class="group cursor-pointer bg-neutral-800/60 hover:bg-neutral-800 p-3 md:p-4 rounded-lg
      transition-all duration-300 ease-in-out hover:scale-105 flex flex-col items-center justify-center"
      >
       <div class="relative">
