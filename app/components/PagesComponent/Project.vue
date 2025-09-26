@@ -5,7 +5,7 @@
     </div>
 
     <div class="mt-4 space-y-3 flex flex-col items-start">
-      <shiny-text :text="data.title" class="text-2xl font-bold" />
+      <shiny-text :text="data.title" class="text-2xl capitalize font-bold" />
       <p class="text-gray-300 font-semibold leading-relaxed line-clamp-2">
         {{ data.desc }}
       </p>

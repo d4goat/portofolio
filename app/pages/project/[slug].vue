@@ -65,8 +65,8 @@
                             spotlight-color="rgba(255, 255, 255, 0.25)" data-aos="fade-up"
                             :data-aos-duration="index == 0 ? 800 : (800 + 100)"
                             class="bg-neutral-950 flex items-center gap-2 rounded-lg">
-                            <UTooltip :text="!data.isDeploy ? `Sorry, this project isn't deployed` : ''">
-                                <UButton :icon="item.icon" :disabled="!data.isDeploy && item.label == 'Live Code'" :label="item.label" variant="ghost" :to="item.link"
+                            <UTooltip :text="!data.isDeploy && item.label == 'Live Demo' ? `Sorry, this project isn't deployed` : ''">
+                                <UButton :icon="item.icon" :disabled="!data.isDeploy && item.label == 'Live Demo'" :label="item.label" variant="ghost" :to="item.link"
                                 target="_blank" class="hover:bg-transparent"
                                 :ui="{ label: 'md:text-xl text-base font-semibold', base: 'md:px-3 md:py-2 md:gap-2' }" />
                             </UTooltip>
@@ -175,5 +175,7 @@ projectData.map(item => {
     }
 })
 
-console.log(route.params.slug)
+useHead({
+    title: `Project | ${data.title}`
+})
 </script>
