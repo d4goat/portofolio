@@ -1,11 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   app: {
     head: {
-      title: "Dilz | Personal Portofolio"
-    }
+      title: "Dilz | Personal Portofolio",
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1",
+        },
+        {
+          charset: "utf-8",
+        },
+      ],
+      link: [
+        { rel: "icon", href: '/images/icon.jpg' }
+      ]
+    },
   },
   // nitro: {
   //   preset: 'vercel'
@@ -13,46 +25,44 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       {
-        name: 'Titilium Web',
+        name: "Titilium Web",
         weights: [400, 500, 600, 700, 800, 900],
-        provider: 'google',
-      }
-    ]
+        provider: "google",
+      },
+    ],
   },
   aos: {
     once: false,
     mirror: false,
-    duration: 1000
+    duration: 1000,
   },
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  css: ['~/assets/css/main.css', '~/assets/css/fonts.css'],
+  css: ["~/assets/css/main.css", "~/assets/css/fonts.css"],
   vite: {
-    plugins: [
-      tailwindcss()
-    ],
+    plugins: [tailwindcss()],
     // optimizeDeps: {
     //   exclude: ['oxc-parser']
     // }
   },
   modules: [
-    '@nuxt/eslint',
-    '@nuxt/ui',
-    'nuxt-aos',
-    'motion-v/nuxt',
-    '@nuxt/fonts',
-    'nuxt-lottie',
-    'nuxt-lucide-icons',
-    'nuxt-svgo',
-    '@pinia/nuxt'
+    "@nuxt/eslint",
+    "@nuxt/ui",
+    "nuxt-aos",
+    "motion-v/nuxt",
+    "@nuxt/fonts",
+    "nuxt-lottie",
+    "nuxt-lucide-icons",
+    "nuxt-svgo",
+    "@pinia/nuxt",
   ],
   lottie: {
-    componentName: 'Lottie',
-    lottieFolder: '/assets/lottie',
+    componentName: "Lottie",
+    lottieFolder: "/assets/lottie",
     autoFolderCreation: true,
-    enableLogs: true
+    enableLogs: true,
   },
   svgo: {
-    autoImportPath: '~/assets/images/'
+    autoImportPath: "~/assets/images/",
   },
-})
+});
